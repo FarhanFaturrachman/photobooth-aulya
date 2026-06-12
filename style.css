@@ -5,12 +5,12 @@
 
 /* RESET & BASE STYLE */
 body {
-    /* Menampilkan gambar bg.jpg dengan lapisan (overlay) biru langit transparan ala Ghibli */
-    background: linear-gradient(rgba(161, 196, 253, 0.7), rgba(194, 233, 251, 0.7)), url('bg.jpg');
+    /* Menggunakan background-image dan huruf besar bg.JPG persis seperti kode lama Anda */
+    background-image: linear-gradient(rgba(161, 196, 253, 0.8), rgba(194, 233, 251, 0.8)), url('bg.JPG');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    color: #2c3e50; /* Warna teks biru gelap kecoklatan agar mudah dibaca */
+    color: #2c3e50; 
     font-family: 'Segoe UI', 'Nunito', 'Quicksand', sans-serif;
     margin: 0;
     overflow: hidden; 

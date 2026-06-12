@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DINA Photobooth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="page-home" class="active">
+        <div class="content-home">
+            <h1 class="hero-title">PHOTOBOOTH</h1>
+            <p class="hero-subtitle">HAPPY BIRTHDAY ADINA AHZAWATI FAKHIRA</p>
+            <button id="btn-start" class="btn-main" onclick="startCapture()">MULAI FOTO</button>
+        </div>
+    </section>
+
+    <section id="page-camera">
+        <div id="camera-container">
+            <div class="camera-left">
+                <div class="video-wrapper">
+                    <video id="video" autoplay playsinline></video>
+                    <div id="timer"></div>
+                </div>
+                <div class="controls">
+                    <button id="btn-capture-manual" class="btn-capture" onclick="triggerManualCapture()">AMBIL FOTO</button>
+                    <button id="btn-go-to-frame" class="btn-next" style="display:none;" onclick="showFrameSelection()">LANJUT PILIH FRAME</button>
+                </div>
+            </div>
+            <div class="camera-right">
+                <h3 class="preview-title">Hasil Foto</h3>
+                <div id="preview-strip">
+                    <div class="slot" id="slot-0" onclick="openDetail(0)"><span>1</span></div>
+                    <div class="slot" id="slot-1" onclick="openDetail(1)"><span>2</span></div>
+                    <div class="slot" id="slot-2" onclick="openDetail(2)"><span>3</span></div>
+                    <div class="slot" id="slot-3" onclick="openDetail(3)"><span>4</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-frame-selection">
+        <h2 class="frame-title-text">Pilih Desain Frame</h2>
+        <div class="frame-selection-scroll-wrapper">
+            <div id="frame-options-scroll" class="scroll-x"></div>
+        </div>
+        <div class="action-buttons">
+            <button class="btn-back" onclick="backToCamera()">KEMBALI</button>
+        </div>
+    </section>
+
+    <section id="page-final-preview">
+        <h2 class="frame-title-text">Preview</h2>
+        <div class="split-preview-container">
+            <div class="preview-sidebar-frames">
+                <div id="frame-options-sidebar"></div>
+            </div>
+            
+            <div class="preview-main-content">
+                <img id="final-image-preview">
+                
+                <div class="final-action-buttons-row">
+                    <button id="btn-download" class="btn-save">Simpan Foto</button>
+                    <button id="btn-share" class="btn-share">Bagikan</button>
+                    <button class="btn-back" onclick="backToFrameSelection()">Kembali</button>
+                    <button class="btn-dash" onclick="location.reload()">Dashboard</button>
+                </div>
+            </div>
+        </div>
+        <canvas id="canvas-result" style="display:none;"></canvas>
+    </section>
+
+    <div id="photo-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeDetail()">&times;</span>
+            <img id="detail-img-view" src="">
+            <div class="modal-controls">
+                <button id="btn-confirm-retake" class="btn-retake">ULANGI FOTO INI</button>
+                <div id="confirm-box" style="display:none;">
+                    <p>Yakin ingin mengulang foto ini?</p>
+                    <button id="btn-yes-retake" class="btn-danger">YA, YAKIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

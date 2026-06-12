@@ -1,5 +1,5 @@
 /* ========================================================
-   DINA PHOTOBOOTH - FULL LOGIC (FINAL STABLE)
+   AULYA PHOTOBOOTH - FULL LOGIC (FINAL STABLE)
    Developer: Farhan Faturrachman
    ======================================================== */
 

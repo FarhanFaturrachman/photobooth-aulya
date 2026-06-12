@@ -5,8 +5,8 @@
 
 /* RESET & BASE STYLE */
 body {
-    /* Gradient biru langit cerah ala Ghibli */
-    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    /* Menampilkan gambar bg.jpg dengan lapisan (overlay) biru langit transparan ala Ghibli */
+    background: linear-gradient(rgba(161, 196, 253, 0.7), rgba(194, 233, 251, 0.7)), url('bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -29,47 +29,63 @@ section {
 
 section.active { display: flex !important; }
 
-/* --- HOME PAGE --- */
+/* --- HOME PAGE (Diperbarui untuk kesan Ghibli yang lebih magis) --- */
 #page-home { text-align: center; }
+
 .hero-title { 
-    font-size: clamp(3rem, 12vh, 15vh); 
+    /* Menggunakan font Serif untuk kesan klasik/storybook */
+    font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif; 
+    font-size: clamp(4rem, 15vh, 18vh); 
     margin: 0; 
-    font-weight: 800;
-    letter-spacing: 2px;
+    font-weight: 900;
+    letter-spacing: 4px;
     color: #ffffff;
-    text-shadow: 0 8px 16px rgba(100, 150, 200, 0.4); 
+    /* Efek bayangan berlapis agar teks menonjol dari background */
+    text-shadow: 
+        2px 2px 0px #72b08e,
+        4px 4px 10px rgba(0, 0, 0, 0.3),
+        0 15px 25px rgba(100, 150, 200, 0.5); 
     animation: bounceIn 1.5s ease; 
 }
+
 .hero-subtitle { 
-    font-size: clamp(1rem, 3vh, 3.5vh); 
-    background: rgba(255, 255, 255, 0.65); 
-    backdrop-filter: blur(10px);
-    color: #334155;
-    padding: 12px 35px; 
-    border-radius: 20px; 
-    border: 2px solid rgba(255, 255, 255, 0.9); 
-    font-weight: 600;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    font-family: 'Segoe UI', 'Nunito', sans-serif;
+    font-size: clamp(1.2rem, 3.5vh, 4vh); 
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(12px);
+    color: #2c3e50;
+    padding: 15px 40px; 
+    border-radius: 50px; /* Bentuk pill yang lebih halus */
+    border: 3px solid rgba(255, 255, 255, 0.9); 
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 
+        0 8px 20px rgba(0,0,0,0.1),
+        inset 0 0 10px rgba(255,255,255,0.5);
+    margin-top: 1vh;
 }
+
 .btn-main { 
     background: #72b08e !important; /* Hijau daun pastel ala Totoro */
     color: #ffffff !important; 
-    padding: 2vh 5vw !important; 
-    border-radius: 20px !important; 
-    font-size: 4vh !important; 
-    font-weight: 700 !important; 
+    padding: 2.5vh 6vw !important; 
+    border-radius: 50px !important; 
+    font-size: 4.5vh !important; 
+    font-weight: 800 !important; 
     cursor: pointer; 
-    border: 3px solid #ffffff;
-    box-shadow: 0 10px 25px rgba(114, 176, 142, 0.4); 
+    border: 4px solid #ffffff;
+    box-shadow: 0 12px 30px rgba(114, 176, 142, 0.5); 
     transition: all 0.3s ease; 
     text-transform: uppercase; 
-    margin-top: 4vh; 
+    margin-top: 5vh; 
+    letter-spacing: 2px;
 }
+
 .btn-main:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.05);
     background: #5d9776 !important;
-    box-shadow: 0 15px 30px rgba(114, 176, 142, 0.5);
+    box-shadow: 0 20px 40px rgba(114, 176, 142, 0.6);
 }
 
 /* --- CAMERA LAYOUT --- */

@@ -15,6 +15,7 @@ body {
     margin: 0;
     overflow: hidden; 
 }
+
 section {
     display: none;
     height: 100vh;
@@ -66,16 +67,16 @@ section.active { display: flex !important; }
 }
 
 .btn-main { 
-    background: #72b08e !important; /* Hijau daun pastel ala Totoro */
+    background: linear-gradient(135deg, #72b08e, #5d9776) !important; /* Hijau daun pastel 3D */
     color: #ffffff !important; 
     padding: 2.5vh 6vw !important; 
     border-radius: 50px !important; 
     font-size: 4.5vh !important; 
     font-weight: 800 !important; 
     cursor: pointer; 
-    border: 4px solid #ffffff;
-    box-shadow: 0 12px 30px rgba(114, 176, 142, 0.5); 
-    transition: all 0.3s ease; 
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 12px 30px rgba(93, 151, 118, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
     text-transform: uppercase; 
     margin-top: 5vh; 
     letter-spacing: 2px;
@@ -83,8 +84,8 @@ section.active { display: flex !important; }
 
 .btn-main:hover {
     transform: translateY(-8px) scale(1.05);
-    background: #5d9776 !important;
-    box-shadow: 0 20px 40px rgba(114, 176, 142, 0.6);
+    border-color: #ffffff;
+    box-shadow: 0 20px 40px rgba(93, 151, 118, 0.6), inset 0 -4px 0 rgba(0,0,0,0.15);
 }
 
 /* --- CAMERA LAYOUT --- */
@@ -103,11 +104,11 @@ section.active { display: flex !important; }
 #video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
 #timer { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 25vh; font-weight: bold; color: white; text-shadow: 0 5px 25px rgba(0,0,0,0.4); z-index: 100; }
 .camera-right { width: 12vw; min-width: 100px; display: flex; flex-direction: column; gap: 12px; }
-.preview-title { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; text-align: center; color: #1e293b;}
+.preview-title { font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px; text-align: center; color: #1e293b; background: rgba(255,255,255,0.7); padding: 5px; border-radius: 10px;}
 .slot { 
     width: 100%; 
     aspect-ratio: 4 / 3; 
-    border: 3px solid #ffffff; 
+    border: 3px solid rgba(255, 255, 255, 0.8); 
     border-radius: 16px; 
     overflow: hidden; 
     background: rgba(255, 255, 255, 0.5); 
@@ -122,11 +123,11 @@ section.active { display: flex !important; }
     color: #94a3b8;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
-.slot:hover { border-color: #72b08e; background: rgba(255, 255, 255, 0.8); color: #72b08e; }
+.slot:hover { border-color: #72b08e; background: rgba(255, 255, 255, 0.9); color: #72b08e; transform: scale(1.03); }
 .slot img { width: 100%; height: 100%; object-fit: cover; }
 
 /* --- FRAME SELECTION (PAGE 3) --- */
-.frame-title-text { font-weight: 800; letter-spacing: 1px; margin-bottom: 2vh; color: #ffffff; text-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.frame-title-text { font-weight: 800; letter-spacing: 2px; margin-bottom: 2vh; color: #ffffff; text-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 .frame-selection-scroll-wrapper { 
     width: 90vw; 
     height: 50vh; 
@@ -143,13 +144,13 @@ section.active { display: flex !important; }
 #frame-options-scroll { display: flex; gap: 24px; }
 .frame-thumb-scroll { 
     height: 40vh; 
-    border: 4px solid #ffffff; 
+    border: 5px solid #ffffff; 
     border-radius: 16px; 
     cursor: pointer; 
-    transition: all 0.3s ease; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-.frame-thumb-scroll:hover { transform: translateY(-10px); border-color: #72b08e; box-shadow: 0 15px 30px rgba(114, 176, 142, 0.3); }
+.frame-thumb-scroll:hover { transform: translateY(-12px) scale(1.02); border-color: #72b08e; box-shadow: 0 20px 35px rgba(114, 176, 142, 0.4); }
 
 /* --- PREVIEW PAGE (PAGE 4) --- */
 .split-preview-container { 
@@ -189,7 +190,7 @@ section.active { display: flex !important; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.frame-thumb-sidebar:hover { transform: scale(1.05); border-color: #72b08e; }
+.frame-thumb-sidebar:hover { transform: scale(1.08); border-color: #72b08e; box-shadow: 0 8px 20px rgba(114, 176, 142, 0.3); }
 
 .preview-main-content { 
     display: flex; 
@@ -215,53 +216,83 @@ section.active { display: flex !important; }
 .close-modal { 
     position: absolute; top: -20px; right: -20px; 
     font-size: clamp(20px, 3vh, 30px); font-weight: bold; cursor: pointer; color: white; 
-    background: #ff9a9e; 
+    background: linear-gradient(135deg, #ff9a9e, #ff747a); 
     width: clamp(40px, 6vh, 60px); height: clamp(40px, 6vh, 60px); 
     border-radius: 50%; border: 4px solid #ffffff; 
     display: flex; align-items: center; justify-content: center; 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); z-index: 100001; transition: all 0.2s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15), inset 0 -3px 0 rgba(0,0,0,0.1); z-index: 100001; transition: all 0.2s ease;
 }
 
-.close-modal:hover { transform: translateY(-3px); background: #ff747a; }
+.close-modal:hover { transform: translateY(-3px) scale(1.1); }
 
-/* TOMBOL UMUM (Warna Pastel Soft) */
-.final-action-buttons-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 3vh; }
-.controls { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; align-items: center;}
+/* ========================================================
+   TOMBOL UMUM (Diperbarui dengan Efek 3D Magis & Bouncy)
+   ======================================================== */
+.final-action-buttons-row { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 3vh; }
+.controls { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; align-items: center;}
 .modal-controls { display: flex; flex-direction: column; gap: 15px; align-items: center; }
 
+/* Gaya Dasar Semua Tombol Ekstra */
 .btn-capture, .btn-next, .btn-save, .btn-share, .btn-back, .btn-dash, .btn-retake, .btn-danger {
-    color: white; border: 2px solid #ffffff;
-    padding: 12px 24px; border-radius: 16px; font-weight: 700; cursor: pointer;
-    text-transform: uppercase; font-size: clamp(0.7rem, 1.5vh, 0.9rem); 
-    letter-spacing: 0.5px;
-    transition: all 0.2s ease;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    color: white; 
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    padding: 14px 28px; 
+    border-radius: 50px; /* Bentuk Pill */
+    font-weight: 800; 
+    cursor: pointer;
+    text-transform: uppercase; 
+    font-size: clamp(0.7rem, 1.6vh, 0.9rem); 
+    letter-spacing: 1.5px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Efek 3D inset shadow di bagian bawah tombol */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1), inset 0 -4px 0 rgba(0,0,0,0.15);
 }
 
-.btn-capture, .btn-next { background: #89b4d4; width: 80%; max-width: 300px; } /* Biru awan */
-.btn-capture:hover, .btn-next:hover { background: #6da2c8; transform: translateY(-2px); }
+/* Hover Effect Keseluruhan */
+.btn-capture:hover, .btn-next:hover, .btn-save:hover, .btn-share:hover, .btn-back:hover, .btn-dash:hover, .btn-retake:hover, .btn-danger:hover {
+    transform: translateY(-5px) scale(1.03);
+    border-color: #ffffff;
+}
 
-.btn-save { background: #72b08e; } /* Hijau alam */
-.btn-save:hover { background: #5d9776; transform: translateY(-2px); }
+/* 1. Biru Awan (Capture & Next) */
+.btn-capture, .btn-next { 
+    background: linear-gradient(135deg, #89b4d4, #6da2c8); 
+    width: 80%; 
+    max-width: 300px; 
+}
+.btn-capture:hover, .btn-next:hover { box-shadow: 0 12px 25px rgba(109, 162, 200, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15); }
 
-.btn-share { background: #d2a8df; } /* Ungu soft sunset */
-.btn-share:hover { background: #bc82ce; transform: translateY(-2px); }
+/* 2. Hijau Alam (Save) */
+.btn-save { background: linear-gradient(135deg, #72b08e, #5d9776); } 
+.btn-save:hover { box-shadow: 0 12px 25px rgba(93, 151, 118, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15); }
 
-.btn-dash { background: #f2c57c; color: #78350f; border-color: #ffffff; } /* Kuning hangat matahari */
-.btn-dash:hover { background: #eeb354; transform: translateY(-2px); }
+/* 3. Ungu Sunset (Share) */
+.btn-share { background: linear-gradient(135deg, #d2a8df, #bc82ce); } 
+.btn-share:hover { box-shadow: 0 12px 25px rgba(188, 130, 206, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15); }
 
-.btn-back { background: #b0bec5; } /* Abu-abu batu */
-.btn-back:hover { background: #90a4ae; transform: translateY(-2px); }
+/* 4. Kuning Matahari (Dashboard) */
+.btn-dash { 
+    background: linear-gradient(135deg, #f2c57c, #eeb354); 
+    color: #5c2e0e; 
+    border-color: rgba(255,255,255,0.9); 
+} 
+.btn-dash:hover { box-shadow: 0 12px 25px rgba(238, 179, 84, 0.5), inset 0 -4px 0 rgba(0,0,0,0.1); }
 
-.btn-retake, .btn-danger { background: #f4978e; } /* Merah bata soft / terracotta */
-.btn-retake:hover, .btn-danger:hover { background: #f07468; transform: translateY(-2px); }
+/* 5. Abu-abu Batu (Back) */
+.btn-back { background: linear-gradient(135deg, #b0bec5, #90a4ae); } 
+.btn-back:hover { box-shadow: 0 12px 25px rgba(144, 164, 174, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15); }
 
-#confirm-box { background: rgba(244, 151, 142, 0.15); padding: 15px; border-radius: 16px; margin-top: 10px; border: 1px solid rgba(244, 151, 142, 0.3); }
-#confirm-box p { margin-top: 0; margin-bottom: 15px; font-weight: 600; color: #c0392b; }
+/* 6. Merah Bata / Terracotta (Retake & Danger) */
+.btn-retake, .btn-danger { background: linear-gradient(135deg, #f4978e, #f07468); } 
+.btn-retake:hover, .btn-danger:hover { box-shadow: 0 12px 25px rgba(240, 116, 104, 0.5), inset 0 -4px 0 rgba(0,0,0,0.15); }
+
+#confirm-box { background: rgba(244, 151, 142, 0.15); padding: 15px; border-radius: 20px; margin-top: 10px; border: 2px solid rgba(244, 151, 142, 0.4); }
+#confirm-box p { margin-top: 0; margin-bottom: 15px; font-weight: 700; color: #c0392b; letter-spacing: 0.5px; }
 
 /* ANIMATIONS */
 @keyframes bounceIn { 
     0% { transform: scale(0.8); opacity: 0; } 
+    50% { transform: scale(1.02); opacity: 1; }
     100% { transform: scale(1); opacity: 1; } 
 }
 ::-webkit-scrollbar { width: 8px; height: 8px; }

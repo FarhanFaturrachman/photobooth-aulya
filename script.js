@@ -198,7 +198,7 @@ function generateCollage(frameSrc) {
  */
 document.getElementById('btn-download').onclick = () => {
     const link = document.createElement('a');
-    link.download = `Photobooth_Dina_${Date.now()}.png`;
+    link.download = `Photobooth_Aulya_${Date.now()}.png`; // Berubah jadi Aulya
     link.href = finalPreview.src;
     link.click();
 };
@@ -208,7 +208,7 @@ document.getElementById('btn-share').onclick = async () => {
         const blob = await new Promise(resolve => canvasResult.toBlob(resolve, 'image/png'));
         const file = new File([blob], `Photo.png`, { type: 'image/png' });
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            await navigator.share({ files: [file], title: 'DINA Photobooth' });
+            await navigator.share({ files: [file], title: 'AULYA Photobooth' }); // Berubah jadi Aulya
         } else { 
             alert("Fitur bagi hanya berfungsi di HP dan koneksi HTTPS."); 
         }

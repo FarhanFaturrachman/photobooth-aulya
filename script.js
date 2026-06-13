@@ -118,9 +118,9 @@ function loadFramesToContainer(containerId, className, isSidebar = false) {
     container.innerHTML = '';
     
     // Sesuaikan angka 10 dengan jumlah total file frame yang kamu punya
-    for(let i=1; i<=1; i++) {
+    for(let i=1; i<=10; i++) {
         const img = document.createElement('img');
-        img.src = `frame/frame${i}.png`; 
+        img.src = `frame/frame${i}.PNG`; 
         img.className = className;
         img.onclick = () => { 
             currentSelectedFrameSrc = img.src; 
